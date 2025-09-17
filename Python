@@ -1,0 +1,30 @@
+# Список 
+str_1 = 'AaBbCcDd'
+
+capital_letters = str_1[::2]
+
+small_letters = str_1[1::2]
+
+print("Заглавные буквы:", capital_letters)
+print("Строчные буквы:", small_letters)
+
+# Стек 
+original_list = ['a', '1', 'b', '2', 'c', '3']
+
+stack = original_list[::-1] 
+
+del original_list
+
+letters_stack = []
+numbers_stack = []
+
+for i in range(len(stack)):
+    element = stack.pop() 
+    
+    if i % 2 == 0:  
+        letters_stack.append(element)
+    else:  
+        numbers_stack.append(element)
+
+print("Буквы:", letters_stack)
+print("Цифры:", numbers_stack)
