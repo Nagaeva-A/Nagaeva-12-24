@@ -1,0 +1,66 @@
+// Список 
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> myList = new ArrayList<>();
+        myList.add("a");
+        myList.add("1");
+        myList.add("b");
+        myList.add("2");
+        myList.add("c");
+        myList.add("3");
+        
+        List<String> lettersList = new ArrayList<>();
+        List<String> numbersList = new ArrayList<>();
+        
+        for (int i = 0; i < myList.size(); i++) {
+            if (i % 2 == 0) { (0, 2, 4...) - буквы
+                lettersList.add(myList.get(i));
+            } else { (1, 3, 5...) - цифры
+                numbersList.add(myList.get(i));
+            }
+        }
+        
+        myList.clear();
+        
+        System.out.println("Список букв:");
+        System.out.println(lettersList);
+        
+        System.out.println("\nСписок цифр:");
+        System.out.println(numbersList);
+    }
+}
+// Стек 
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+        String[] originalArray = {"a", "1", "b", "2", "c", "3"};
+        Stack<String> lettersStack = new Stack<>();
+        Stack<String> numbersStack = new Stack<>();
+       
+        for (int i = originalArray.length - 1; i >= 0; i--) {
+            if (i % 2 == 0) {
+                lettersStack.push(originalArray[i]);
+            } else {
+                numbersStack.push(originalArray[i]);
+            }
+        }
+        
+        originalArray = null;
+        
+       System.out.println("Стек букв:");
+        while (!lettersStack.isEmpty()) {
+            System.out.print(lettersStack.pop() + " ");
+        }
+        System.out.println("\n");
+        
+        System.out.println("Стек цифр:");
+        while (!numbersStack.isEmpty()) {
+            System.out.print(numbersStack.pop() + " ");
+        }
+        System.out.println();
+    }
+}
