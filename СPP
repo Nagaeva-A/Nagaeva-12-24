@@ -1,0 +1,62 @@
+// список
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "AaBbCcDd";
+    string capitalLetters = "";
+    string smallLetters = "";
+    
+    for (int i = 0; i < str.length(); i += 2) {
+        capitalLetters += str[i];
+    }
+    
+    for (int i = 1; i < str.length(); i += 2) {
+        smallLetters += str[i];
+    }
+  
+    cout << "Заглавные буквы: " << capitalLetters << endl;
+    cout << "Строчные буквы: " << smallLetters << endl;
+    
+    return 0;
+}
+
+// Стек 
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<string> originalList = {"a", "1", "b", "2", "c", "3"};
+    stack<string> lettersStack;
+    stack<string> numbersStack;
+    
+    for (int i = originalList.size() - 1; i >= 0; i--) {
+        if (i % 2 == 0) {
+            lettersStack.push(originalList[i]);
+        } else {
+            numbersStack.push(originalList[i]);
+        }
+    }
+    
+    originalList.clear();
+    
+    cout << "Стек букв:" << endl;
+    while (!lettersStack.empty()) {
+        cout << lettersStack.top() << " ";
+        lettersStack.pop();
+    }
+    cout << endl << endl;
+    
+    cout << "Стек цифр:" << endl;
+    while (!numbersStack.empty()) {
+        cout << numbersStack.top() << " ";
+        numbersStack.pop();
+    }
+    cout << endl;
+    
+    return 0;
+}
